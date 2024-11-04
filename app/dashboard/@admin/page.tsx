@@ -1,5 +1,10 @@
 import { redirect } from 'next/navigation';
+import { getRoleClaim } from '@/data/auth';
 
-export default function AdminPage() {
-  redirect('/dashboard/users');
+export default async function AdminPage() {
+  const roleClaim = await getRoleClaim();
+
+  if (roleClaim === 'Admin') {
+    redirect('/dashboard/users');
+  }
 }
