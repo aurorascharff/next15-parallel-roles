@@ -7,11 +7,13 @@ type Props = {
 };
 
 export default async function AdminTabPage({ params }: Props) {
+  const tab = (await params).tab;
+
   try {
-    adminTabSchema.parse(await params);
+    adminTabSchema.parse(tab);
   } catch (e) {
     notFound();
   }
 
-  return <>AdminTabPage: {(await params).tab}</>;
+  return <>AdminTabPage: {tab}</>;
 }

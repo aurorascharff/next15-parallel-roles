@@ -7,11 +7,13 @@ type Props = {
 };
 
 export default async function UserTabPage({ params }: Props) {
+  const tab = (await params).tab;
+
   try {
-    userTabSchema.parse(await params);
+    userTabSchema.parse(tab);
   } catch (e) {
     notFound();
   }
 
-  return <>UserTabPage: {(await params).tab}</>;
+  return <>UserTabPage: {tab}</>;
 }
