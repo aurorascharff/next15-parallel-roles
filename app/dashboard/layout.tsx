@@ -11,9 +11,14 @@ export default async function DashboardLayout({ admin, user }: Props) {
   const role = await getRoleClaim();
 
   return (
-    <div>
-      <SetRoleSwitch roleClaim={role} />
-      {role === 'Admin' ? admin : user}
-    </div>
+    <>
+      Current role: {role}
+      {role === 'Admin' && <div>Here is content visible only to Admin</div>}
+      {role === 'User' && <div>Here is content visible only to User</div>}
+      <div>
+        <SetRoleSwitch roleClaim={role} />
+        {role === 'Admin' ? admin : user}
+      </div>
+    </>
   );
 }
