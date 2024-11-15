@@ -12,7 +12,7 @@ export async function setRoleClaim(newRoleClaim: RoleClaim) {
     return setTimeout(resolve, 1000);
   });
   roleClaim = newRoleClaim;
-  revalidatePath('/dashboard');
+  revalidatePath('/dashboard'); // TODO: Replace with expirePath once imports don't fail
   redirect('/dashboard');
 }
 

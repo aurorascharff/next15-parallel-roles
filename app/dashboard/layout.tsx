@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { getRoleClaim } from '@/data/auth';
+import Dashboard from './_components/Dashboard';
 import SetRoleSwitch from './_components/SetRoleButton';
 
 type Props = {
@@ -7,18 +8,17 @@ type Props = {
   user: React.ReactNode;
 };
 
-export default async function DashboardLayout({ admin, user }: Props) {
-  const role = await getRoleClaim();
+export default function DashboardLayout({ admin, user }: Props) {
+  const role = getRoleClaim();
 
   return (
     <>
-      Current role: {role}
-      {role === 'Admin' && <div>Here is content visible only to Admin</div>}
-      {role === 'User' && <div>Here is content visible only to User</div>}
-      <div>
-        <SetRoleSwitch roleClaim={role} />
-        {role === 'Admin' ? admin : user}
-      </div>
+      <Suspense fallback={<div>Loading role...</div>}>
+        <SetRoleSwitch roleClaimPromise={role} />
+      </Suspense>
+      <Suspense fallback={<div>Reloading dashboard...</div>}>
+        <Dashboard admin={admin} user={user} />
+      </Suspense>
     </>
   );
 }
