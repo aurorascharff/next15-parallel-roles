@@ -6,7 +6,7 @@ export default async function DashboardPage() {
   return (
     <div>
       <h1>Admin Page</h1>
-      {roleClaim}
+      Showing dashboard for: {roleClaim}
     </div>
   );
 }
