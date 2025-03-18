@@ -1,5 +1,5 @@
 import React from 'react';
-import { getRoleClaim } from '@/data/auth';
+import { getRoleClaim } from '@/data/services/auth';
 
 type Props = {
   admin: React.ReactNode;

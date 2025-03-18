@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { getRoleClaim } from '@/data/auth';
+import { getRoleClaim } from '@/data/services/auth';
 
 export default async function UserPage() {
   const roleClaim = await getRoleClaim();

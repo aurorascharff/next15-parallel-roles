@@ -1,4 +1,4 @@
-import { getRoleClaim } from '@/data/auth';
+import { getRoleClaim } from '@/data/services/auth';
 
 export default async function DashboardPage() {
   const roleClaim = await getRoleClaim();

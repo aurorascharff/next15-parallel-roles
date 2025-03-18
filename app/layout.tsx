@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, 'mt-8 grid place-content-center gap-8')}>{children}</body>
+      <body className={cn(inter.className, 'p-40')}>{children}</body>
     </html>
   );
 }

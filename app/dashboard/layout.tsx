@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { getRoleClaim } from '@/data/auth';
+import { getRoleClaim } from '@/data/services/auth';
 
 import SetRoleSwitch from './_components/SetRoleButton';
 
